@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">frikiapp</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="google_maps_key">numbers</string>
+     <string name="MAPS_API_KEY">AIzaSyAYD_BXDKI2S5A_-maHbtmSP7j7R3de57s</string>
+
+</resources>
