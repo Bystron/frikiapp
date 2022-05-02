@@ -14,9 +14,5 @@
         android:id="@+id/mapFragment"
         android:name="com.example.frikiapp.MapFragment"
         android:label="fragment_map_fragment"
-        tools:layout="@layout/fragment_map" >
-        <action
-            android:id="@+id/action_mapFragment_to_mapsActivity"
-            app:destination="@id/mapsActivity" />
-    </fragment>
+        tools:layout="@layout/fragment_map" />
 </navigation>
