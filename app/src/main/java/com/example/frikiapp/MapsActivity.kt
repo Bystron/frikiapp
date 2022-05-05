@@ -11,7 +11,6 @@ import java.security.AccessController.getContext
 
 class   MapsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        //Log.d(ContentValues.TAG,"Map Created")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_screen)
 
