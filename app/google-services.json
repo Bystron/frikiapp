@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1094799725154",
+    "project_id": "trianglefrikiapp",
+    "storage_bucket": "trianglefrikiapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094799725154:android:e1495d179deedc54dd373b",
+        "android_client_info": {
+          "package_name": "com.example.frikiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094799725154-grr9n6nje9kp34c404ali1625g6dju9e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.frikiapp",
+            "certificate_hash": "ab519c0d1abc448a098a16cf19ae4e63f6fa31ac"
+          }
+        },
+        {
+          "client_id": "1094799725154-flqpd0hq2199c26jhanockcb8427g0ok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYD_BXDKI2S5A_-maHbtmSP7j7R3de57s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094799725154-flqpd0hq2199c26jhanockcb8427g0ok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
