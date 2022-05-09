@@ -3,6 +3,10 @@ package com.example.frikiapp.firebase
 import com.google.firebase.auth.FirebaseAuth
 
 class usercreation {
+
+    lateinit var email: String
+    lateinit var password: String
+
 fun createUser(){
 
     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)

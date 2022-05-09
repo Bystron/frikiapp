@@ -31,6 +31,9 @@ class MapFragment(contentLayoutId: Int) : Fragment(contentLayoutId), OnMapReadyC
     private lateinit var mMap: GoogleMap
     private lateinit var binding: FragmentMapBinding
 
+// DADES FIREBASE
+    // private val db = FirebaseFirestore.getInstance()
+
     @RequiresApi(Build.VERSION_CODES.R)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
