@@ -40,8 +40,6 @@ import java.util.concurrent.Executors
 
 class CameraFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
 
-    private lateinit var binding: FragmentMapBinding
-
     lateinit var binding: FragmentCameraBinding
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File

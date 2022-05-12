@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth
 import java.lang.Math.log
 
 
-class Authentication(contentLayoutId: Int) : Fragment(contentLayoutId) {
+class AuthenticationFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
 
     private lateinit var binding: FragmentMapBinding
     var email: String = ""

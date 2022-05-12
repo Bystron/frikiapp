@@ -16,6 +16,6 @@
     </fragment>
     <fragment
         android:id="@+id/authentication"
-        android:name="com.example.frikiapp.Authentication"
+        android:name="com.example.frikiapp.AuthenticationFragment"
         android:label="Authentication" />
 </navigation>
