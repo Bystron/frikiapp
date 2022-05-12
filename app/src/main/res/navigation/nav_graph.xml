@@ -9,5 +9,13 @@
         android:id="@+id/mapFragment"
         android:name="com.example.frikiapp.MapFragment"
         android:label="fragment_map_fragment"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment_to_authentication"
+            app:destination="@id/authentication" />
+    </fragment>
+    <fragment
+        android:id="@+id/authentication"
+        android:name="com.example.frikiapp.Authentication"
+        android:label="Authentication" />
 </navigation>
