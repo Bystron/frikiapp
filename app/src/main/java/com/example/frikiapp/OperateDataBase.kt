@@ -39,7 +39,7 @@ class OperateDataBase : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_operate_data_base, container, false)
+        return inflater.inflate(R.layout.marker_list_screen, container, false)
     }
 
     companion object {
@@ -65,82 +65,82 @@ class OperateDataBase : Fragment() {
     // DATABASE
     private val db = FirebaseFirestore.getInstance()
 
-    private fun UserSaveDocument(){
-        binding.btSave.setOnClickListener {
-            db.collection("users").document(email!!).set(
-                hashMapOf("name" to binding.etName.text.toString(),
-                    "lastname" to binding.etLastname.text.toString(),
-                    "age" to binding.etAge.text.toString())
-            )
-        }
+//    private fun UserSaveDocument(){
+//        binding.btSave.setOnClickListener {
+//            db.collection("users").document(email!!).set(
+//                hashMapOf("name" to binding.etName.text.toString(),
+//                    "lastname" to binding.etLastname.text.toString(),
+//                    "age" to binding.etAge.text.toString())
+//            )
+//        }
+//
+//    }
 
-    }
+//    private fun reestoreData(){
+//        binding.btGet.setOnClickListener {
+//            db.collection("users").document(email!!).get().addOnSuccessListener {
+//                binding.etName.setText(it.get("name") as String)
+//                binding.etLastname.setText(it.get("lastname") as String)
+//                binding.etAge.setText(it.get("age") as String)
+//            }
+//        }
+//    }
 
-    private fun reestoreData(){
-        binding.btGet.setOnClickListener {
-            db.collection("users").document(email!!).get().addOnSuccessListener {
-                binding.etName.setText(it.get("name") as String)
-                binding.etLastname.setText(it.get("lastname") as String)
-                binding.etAge.setText(it.get("age") as String)
-            }
-        }
-    }
-
-    private fun deleteData(){
-        binding.btDelete.setOnClickListener {
-            db.collection("users").document(email!!).delete()
-        }
-    }
-
-    //Al métode OnViewCreated, una vegada creat el RecyclerView, cridarem a una funció que serà la que gestionarà els canvis en les dades de la col·lecció de Firestore
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView(arrayListOf())
-        userList = arrayListOf<User>()
-        eventChangeListener()
-    }
-
-    private fun setupRecyclerView(usersList: List<User>) {
-        userAdapter = UserAdapter(usersList, this)
-        binding.recyclerView.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(context)
-            adapter = userAdapter
-        }
-    }
-//          Mostrar dades d'un recyclerview
-    private fun eventChangeListener() {
-        db.collection("users").addSnapshotListener(object: EventListener<QuerySnapshot> {
-            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                if(error != null){
-                    Log.e("Firestore error", error.message.toString())
-                    return
-                }
-                for(dc: DocumentChange in value?.documentChanges!!){
-                    if(dc.type == DocumentChange.Type.ADDED){
-                        val newUser = dc.document.toObject(User::class.java)
-                        newUser.email = dc.document.id
-                        userList.add(newUser)
-                    }
-                }
-                userAdapter.setUsersList(userList)
-            }
-        })
-    }
-
-    override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?){
-        if(dc.type == DocumentChange.Type.ADDED){
-            val newUser = dc.document.toObject(User::class.java)
-            newUser.email = dc.document.id
-            userList.add(newUser)
-        }
-
-    }
-
-    override fun onClick(user: User) {
-        val action = ListFragmentDirections.actionListFragmentToUserDetailFragment(user.id!!)
-        findNavController().navigate(action)
-    }
+//    private fun deleteData(){
+//        binding.btDelete.setOnClickListener {
+//            db.collection("users").document(email!!).delete()
+//        }
+//    }
+//
+//    //Al métode OnViewCreated, una vegada creat el RecyclerView, cridarem a una funció que serà la que gestionarà els canvis en les dades de la col·lecció de Firestore
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        setupRecyclerView(arrayListOf())
+//        userList = arrayListOf<User>()
+//        eventChangeListener()
+//    }
+//
+//    private fun setupRecyclerView(usersList: List<User>) {
+//        userAdapter = UserAdapter(usersList, this)
+//        binding.recyclerView.apply {
+//            setHasFixedSize(true)
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = userAdapter
+//        }
+//    }
+////          Mostrar dades d'un recyclerview
+//    private fun eventChangeListener() {
+//        db.collection("users").addSnapshotListener(object: EventListener<QuerySnapshot> {
+//            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+//                if(error != null){
+//                    Log.e("Firestore error", error.message.toString())
+//                    return
+//                }
+//                for(dc: DocumentChange in value?.documentChanges!!){
+//                    if(dc.type == DocumentChange.Type.ADDED){
+//                        val newUser = dc.document.toObject(User::class.java)
+//                        newUser.email = dc.document.id
+//                        userList.add(newUser)
+//                    }
+//                }
+//                userAdapter.setUsersList(userList)
+//            }
+//        })
+//    }
+//
+//    override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?){
+//        if(dc.type == DocumentChange.Type.ADDED){
+//            val newUser = dc.document.toObject(User::class.java)
+//            newUser.email = dc.document.id
+//            userList.add(newUser)
+//        }
+//
+//    }
+//
+//    override fun onClick(user: User) {
+//        val action = ListFragmentDirections.actionListFragmentToUserDetailFragment(user.id!!)
+//        findNavController().navigate(action)
+//    }
 
 
 }

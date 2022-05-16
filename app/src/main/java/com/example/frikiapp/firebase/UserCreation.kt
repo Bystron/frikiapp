@@ -1,8 +1,9 @@
 package com.example.frikiapp.firebase
 
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 
-class usercreation {
+class UserCreation(contentLayoutId: Int) : Fragment(contentLayoutId){
 
     lateinit var email: String
     lateinit var password: String

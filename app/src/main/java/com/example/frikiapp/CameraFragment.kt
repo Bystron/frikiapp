@@ -21,6 +21,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.frikiapp.databinding.CameraScreenBinding
 import com.example.frikiapp.databinding.FragmentMapBinding
 //import com.example.frikiapp.databinding.FragmentMapFragmentBinding
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -40,7 +41,7 @@ import java.util.concurrent.Executors
 
 class CameraFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
 
-    lateinit var binding: FragmentCameraBinding
+    lateinit var binding: CameraScreenBinding
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
@@ -49,7 +50,7 @@ class CameraFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        binding = FragmentCameraBinding.inflate(layoutInflater)
+        binding = CameraScreenBinding.inflate(layoutInflater)
         if (allPermissionsGranted()) {
             startCamera()
         } else {

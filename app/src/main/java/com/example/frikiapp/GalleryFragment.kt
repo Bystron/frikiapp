@@ -6,6 +6,7 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.media.Image
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -45,18 +46,18 @@ import java.util.concurrent.Executors
 
 class GalleryFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
 
-    lateinit var binding: FragmentCameraBinding
-    private var imageCapture: ImageCapture? = null
+   // lateinit var binding: FragmentCameraBinding
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
+    var imageUri: Image? = null
 
     var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             result ->
         if (result.resultCode == RESULT_OK) {
             val data: Intent? = result.data
             if (data != null) {
-                imageUri = data.data!!
-                binding.imageView.setImageURI(imageUri)
+               // imageUri = data.data!!
+               // binding.imageView.setImageURI(imageUri)
             }
         }
     }
@@ -66,29 +67,25 @@ class GalleryFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        binding = FragmentCameraBinding.inflate(layoutInflater)
-
-
-
-        private fun selectImage() {
-            val intent = Intent()
-            intent.type = "image/*"
-            intent.action = Intent.ACTION_GET_CONTENT
-            resultLauncher.launch(intent)
-        }
-
-
-        return binding.root
+        //binding = FragmentCameraBinding.inflate(layoutInflater)
+        //return binding.root
     }
 
-    private fun ImageGaññery(){
+    private fun selectImage() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        resultLauncher.launch(intent)
+    }
+
+    private fun ImageGallery(){
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
         val fileName = formatter.format(now)
         val storage = FirebaseStorage.getInstance().getReference("images/$fileName")
         storage.putFile(imageUri)
             .addOnSuccessListener {
-                binding.imageView.setImageURI(null)
+               // binding.imageView.setImageURI(null)
                 Toast.makeText(requireContext(), "Image uploaded!", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
@@ -104,7 +101,7 @@ class GalleryFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
         val storage = FirebaseStorage.getInstance().getReference("images/$fileName")
         storage.putFile(imageUri)
             .addOnSuccessListener {
-                binding.imageView.setImageURI(null)
+              //  binding.imageView.setImageURI(null)
                 Toast.makeText(requireContext(), "Image uploaded!", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
@@ -118,7 +115,7 @@ class GalleryFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
         val localFile = File.createTempFile("temp", "jpeg")
         storage.getFile(localFile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-            binding.imageView.setImageBitmap(bitmap)
+           // binding.imageView.setImageBitmap(bitmap)
 
         }.addOnFailureListener{
             Toast.makeText(requireContext(), "Error downloading image!", Toast.LENGTH_SHORT)

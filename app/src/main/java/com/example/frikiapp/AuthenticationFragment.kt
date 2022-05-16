@@ -51,28 +51,28 @@ class AuthenticationFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
             .addOnCompleteListener {
                 if(it.isSuccessful){
                     val emailLogged = it.result?.user?.email
-                    goToHome(emailLogged!!)
+                    //goToHome(emailLogged!!)
                 }
                 else{
-                    showError("Error al registrar l'usuari")
+                   // showError("Error al registrar l'usuari")
                 }
             }
     }
 
-    private fun UserLogin(){
-        FirebaseAuth.getInstance().
-        signInWithEmailAndPassword(email, binding.etPassword.text.toString())
-            .addOnCompleteListener {
-                if(it.isSuccessful){
-                    val emailLogged = it.result?.user?.email
-                    goToHome(emailLogged!!)
-                }
-                else{
-                    showError("Error al fer login")
-                }
-            }
-
-    }
+//    private fun UserLogin(){
+//        FirebaseAuth.getInstance().
+//        signInWithEmailAndPassword(email, binding.etPassword.text.toString())
+//            .addOnCompleteListener {
+//                if(it.isSuccessful){
+//                    val emailLogged = it.result?.user?.email
+//                   // goToHome(emailLogged!!)
+//                }
+//                else{
+//                   // showError("Error al fer login")
+//                }
+//            }
+//
+//    }
 
     private fun LogOut(){
         FirebaseAuth.getInstance().signOut()
