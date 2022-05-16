@@ -65,11 +65,11 @@ class GalleryFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
 
     @RequiresApi(Build.VERSION_CODES.R)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        //binding = FragmentCameraBinding.inflate(layoutInflater)
-        //return binding.root
-    }
+//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+//                              savedInstanceState: Bundle?): View? {
+//        binding = FragmentCameraBinding.inflate(layoutInflater)
+//        return binding.root
+//    }
 
     private fun selectImage() {
         val intent = Intent()
@@ -83,14 +83,14 @@ class GalleryFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
         val now = Date()
         val fileName = formatter.format(now)
         val storage = FirebaseStorage.getInstance().getReference("images/$fileName")
-        storage.putFile(imageUri)
-            .addOnSuccessListener {
-               // binding.imageView.setImageURI(null)
-                Toast.makeText(requireContext(), "Image uploaded!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(), "Image not uploaded!", Toast.LENGTH_SHORT).show()
-            }
+//        storage.putFile(imageUri)
+//            .addOnSuccessListener {
+//               // binding.imageView.setImageURI(null)
+//                Toast.makeText(requireContext(), "Image uploaded!", Toast.LENGTH_SHORT).show()
+//            }
+//            .addOnFailureListener {
+//                Toast.makeText(requireContext(), "Image not uploaded!", Toast.LENGTH_SHORT).show()
+//            }
 
     }
 
@@ -99,14 +99,14 @@ class GalleryFragment(contentLayoutId: Int) : Fragment(contentLayoutId) {
         val now = Date()
         val fileName = formatter.format(now)
         val storage = FirebaseStorage.getInstance().getReference("images/$fileName")
-        storage.putFile(imageUri)
-            .addOnSuccessListener {
-              //  binding.imageView.setImageURI(null)
-                Toast.makeText(requireContext(), "Image uploaded!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(), "Image not uploaded!", Toast.LENGTH_SHORT).show()
-            }
+//        storage.putFile(imageUri)
+//            .addOnSuccessListener {
+//              //  binding.imageView.setImageURI(null)
+//                Toast.makeText(requireContext(), "Image uploaded!", Toast.LENGTH_SHORT).show()
+//            }
+//            .addOnFailureListener {
+//                Toast.makeText(requireContext(), "Image not uploaded!", Toast.LENGTH_SHORT).show()
+//            }
 
     }
 
