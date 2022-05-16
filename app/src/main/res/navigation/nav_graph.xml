@@ -8,32 +8,22 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.frikiapp.MapFragment"
-        android:label="fragment_map_fragment"
-        tools:layout="@layout/fragment_map" />
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/authentication"
-        android:name="com.example.frikiapp.AuthenticationFragment"
-        android:label="Authentication" />
-    <fragment
-        android:id="@+id/operateDataBase"
-        android:name="com.example.frikiapp.OperateDataBase"
-        android:label="fragment_operate_data_base"
-        tools:layout="@layout/fragment_operate_data_base" />
+        android:id="@+id/galleryFragment"
+        android:name="com.example.frikiapp.GalleryFragment"
+        android:label="GalleryFragment" >
+        <action
+            android:id="@+id/action_galleryFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.example.frikiapp.CameraFragment"
         android:label="CameraFragment" />
-    <fragment
-        android:id="@+id/galleryFragment"
-        android:name="com.example.frikiapp.GalleryFragment"
-        android:label="GalleryFragment" />
-    <fragment
-        android:id="@+id/userCreation"
-        android:name="com.example.frikiapp.firebase.UserCreation"
-        android:label="UserCreation" />
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.frikiapp.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
 </navigation>
